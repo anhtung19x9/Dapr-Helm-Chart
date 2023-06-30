@@ -149,8 +149,10 @@ spec:
         securityContext:
 {{- if eq .Values.cluster.forceInMemoryLog true }}
           runAsNonRoot: {{ .Values.runAsNonRoot }}
+          allowPrivilegeEscalation: false
 {{- else }}
           runAsUser: 0
+          allowPrivilegeEscalation: false
 {{- end }}
 {{- if eq .Values.debug.enabled true }}
           capabilities:

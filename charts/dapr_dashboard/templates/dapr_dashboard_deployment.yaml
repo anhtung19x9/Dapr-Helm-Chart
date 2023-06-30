@@ -58,6 +58,7 @@ spec:
 {{- if eq .Values.global.daprControlPlaneOs "linux" }}
         securityContext:
           runAsNonRoot: {{ .Values.runAsNonRoot }}
+          allowPrivilegeEscalation: false
 {{- end }}
         env:
         - name: NAMESPACE

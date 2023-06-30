@@ -71,8 +71,10 @@ spec:
         securityContext:
   {{- if eq .Values.runAsNonRoot true }}
           runAsNonRoot: {{ .Values.runAsNonRoot }}
+          allowPrivilegeEscalation: false
   {{- else }}
           runAsUser: 1000
+          allowPrivilegeEscalation: false
   {{- end }}
   {{- if eq .Values.debug.enabled true }}
           capabilities:
